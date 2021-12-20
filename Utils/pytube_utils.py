@@ -8,7 +8,7 @@ def pytube_search_object_to_url(result_object):
   str_result = str(result_object)
   return f"https://www.youtube.com/watch?v={str_result.split('videoId=')[-1][:-1]}"
 
-def search_by_keyword(keyword, Search, today, url_list):
+def search_by_keyword(keyword, Search, url_list, today):
   """
   return a dataframe of urls searched by keyword
   """
@@ -36,7 +36,7 @@ def search_by_keyword(keyword, Search, today, url_list):
               }
           )
 
-def search_by_channel(channel_url, Channel, url_list):
+def search_by_channel(channel_url, Channel, url_list, today):
   """
   return a dataframe of urls searched by channel
   """
