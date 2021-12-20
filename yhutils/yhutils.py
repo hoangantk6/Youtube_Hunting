@@ -1,9 +1,5 @@
-def pytube_search_object_to_url(result_object):
-  """
-  convert a pytube url object into string url
-  """
-  str_result = str(result_object)
-  return f"https://www.youtube.com/watch?v={str_result.split('videoId=')[-1][:-1]}"
+from datetime import datetime
+import pytz
 
 def save_database(df, file_path):
   """
@@ -23,3 +19,8 @@ def display_table(df, data_table):
   display table in Google Colab
   """
   return data_table.DataTable(df, num_rows_per_page=10)
+
+def what_date_today():
+  today = datetime.now(pytz.timezone('Asia/Ho_Chi_Minh'))
+  today = today.strftime("%Y-%m-%d %H:%M:%S")
+  return today
