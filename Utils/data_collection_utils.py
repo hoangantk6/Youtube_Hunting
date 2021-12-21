@@ -1,5 +1,8 @@
 import pandas as pd
 import utils
+from pytube import Channel
+from pytube import Youtube
+from pytube import Search
 
 # ---- pyyoutube ----
 # CHANNEL
@@ -78,14 +81,14 @@ def video_dict_to_df(video_dict):
   return pd.DataFrame([video])
 
 # ---- pytube ----
-def search_object_to_url(result_object):
+def search_object_to_video_url(result_object):
   """
   convert a pytube url object into string url
   """
   str_result = str(result_object)
   return f"https://www.youtube.com/watch?v={str_result.split('videoId=')[-1][:-1]}"
 
-def search_by_keyword(keyword, Search, url_list, today):
+def search_by_keyword(keyword, url_list, today):
   """
   return a dataframe of urls searched by keyword
   """
@@ -93,27 +96,33 @@ def search_by_keyword(keyword, Search, url_list, today):
   search_query_list = []
   extracted_date_list = []
   video_file_name_list = []
+  channel_name_list = []
+  channel_url_list = []
 
   s = Search(keyword)
   for search_object in s.results:
-    url = search_object_to_url(search_object)
+    url = search_object_to_video_url(search_object)
     # if the url not seen in the database
     if url not in url_list:
       video_url_list.append(url)
       search_query_list.append(f'keyword: {keyword}')
       extracted_date_list.append(today)
       video_file_name_list.append('')
+      channel_name_list.append(Channel(Youtube(url)).channel_name)
+      channel_url_list.append(Channel(Youtube(url)).channel_url)
 
   return pd.DataFrame(
               {
                   'video_url': video_url_list,
                   'extracted_date': extracted_date_list,
                   'search_query': search_query_list, 
-                  'video_file_name': video_file_name_list
+                  'video_file_name': video_file_name_list, 
+                  'channel_name': channel_name_list,
+                  'channel_url': channel_url_list
               }
           )
 
-def search_by_channel(channel_url, Channel, url_list, today):
+def search_by_channel(channel_url, url_list, today):
   """
   return a dataframe of urls searched by channel
   """
