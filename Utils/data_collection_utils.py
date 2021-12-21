@@ -114,7 +114,7 @@ def search_by_keyword(keyword, url_list, today):
   return pd.DataFrame(
               {
                   'video_url': video_url_list,
-                  'extracted_date': extracted_date_list,
+                  'added_date': extracted_date_list,
                   'search_query': search_query_list, 
                   'video_file_name': video_file_name_list, 
                   'channel_name': channel_name_list,
