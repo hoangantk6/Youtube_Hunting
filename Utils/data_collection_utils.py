@@ -1,7 +1,7 @@
 import pandas as pd
 import utils
 from pytube import Channel
-from pytube import Youtube
+from pytube import YouTube
 from pytube import Search
 
 # ---- pyyoutube ----
