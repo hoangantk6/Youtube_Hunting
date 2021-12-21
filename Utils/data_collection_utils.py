@@ -88,7 +88,7 @@ def search_object_to_video_url(result_object):
   str_result = str(result_object)
   return f"https://www.youtube.com/watch?v={str_result.split('videoId=')[-1][:-1]}"
 
-def search_by_keyword(keyword, url_list, today):
+def search_by_keyword(keyword, url_list, today, pytube):
   """
   return a dataframe of urls searched by keyword
   """
@@ -99,7 +99,7 @@ def search_by_keyword(keyword, url_list, today):
   channel_name_list = []
   channel_url_list = []
 
-  s = Search(keyword)
+  s = pytube.Search(keyword)
   for search_object in s.results:
     url = search_object_to_video_url(search_object)
     # if the url not seen in the database
@@ -108,8 +108,8 @@ def search_by_keyword(keyword, url_list, today):
       search_query_list.append(f'keyword: {keyword}')
       extracted_date_list.append(today)
       video_file_name_list.append('')
-      channel_name_list.append(Channel(Youtube(url)).channel_name)
-      channel_url_list.append(Channel(Youtube(url)).channel_url)
+      channel_name_list.append(pytube.Channel(pytube.Youtube(url)).channel_name)
+      channel_url_list.append(pytube.Channel(pytube.Youtube(url)).channel_url)
 
   return pd.DataFrame(
               {
@@ -122,7 +122,7 @@ def search_by_keyword(keyword, url_list, today):
               }
           )
 
-def search_by_channel(channel_url, url_list, today):
+def search_by_channel(channel_url, url_list, today, pytube):
   """
   return a dataframe of urls searched by channel
   """
@@ -131,7 +131,7 @@ def search_by_channel(channel_url, url_list, today):
   extracted_date_list = []
   video_file_name_list = []
 
-  c = Channel(channel_url)
+  c = pytube.Channel(channel_url)
   for url in c.video_urls:
     if url not in url_list:
       video_url_list.append(url)
