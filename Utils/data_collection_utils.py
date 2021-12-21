@@ -108,8 +108,8 @@ def search_by_keyword(keyword, url_list, today):
       search_query_list.append(f'keyword: {keyword}')
       extracted_date_list.append(today)
       video_file_name_list.append('')
-      channel_name_list.append(Channel(YouTube(url)).channel_name)
-      channel_url_list.append(Channel(YouTube(url)).channel_url)
+      channel_name_list.append(Channel(YouTube(url).channel_url).channel_name)
+      channel_url_list.append(YouTube(url).channel_url)
 
   return pd.DataFrame(
               {
