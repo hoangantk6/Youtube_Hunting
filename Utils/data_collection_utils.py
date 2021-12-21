@@ -94,7 +94,7 @@ def search_by_keyword(keyword, url_list, today):
   """
   video_url_list = []
   search_query_list = []
-  extracted_date_list = []
+  added_date_list = []
   video_file_name_list = []
   channel_name_list = []
   channel_url_list = []
@@ -106,7 +106,7 @@ def search_by_keyword(keyword, url_list, today):
     if url not in url_list:
       video_url_list.append(url)
       search_query_list.append(f'keyword: {keyword}')
-      extracted_date_list.append(today)
+      added_date_list.append(today)
       video_file_name_list.append('')
       channel_name_list.append(Channel(YouTube(url).channel_url).channel_name)
       channel_url_list.append(YouTube(url).channel_url)
@@ -114,7 +114,7 @@ def search_by_keyword(keyword, url_list, today):
   return pd.DataFrame(
               {
                   'video_url': video_url_list,
-                  'added_date': extracted_date_list,
+                  'added_date': added_date_list,
                   'search_query': search_query_list, 
                   'video_file_name': video_file_name_list, 
                   'channel_name': channel_name_list,
@@ -128,22 +128,28 @@ def search_by_channel(channel_url, url_list, today):
   """
   video_url_list = []
   search_query_list = []
-  extracted_date_list = []
+  added_date_list = []
   video_file_name_list = []
+  channel_name_list = []
+  channel_url_list = []
 
   c = Channel(channel_url)
   for url in c.video_urls:
     if url not in url_list:
       video_url_list.append(url)
       search_query_list.append(f'channel: {c.channel_name}')
-      extracted_date_list.append(today)
+      added_date_list.append(today)
       video_file_name_list.append('')
+      channel_name_list.append(Channel(YouTube(url).channel_url).channel_name)
+      channel_url_list.append(YouTube(url).channel_url)
 
   return pd.DataFrame(
               {
                   'video_url': video_url_list,
-                  'extracted_date': extracted_date_list,
+                  'added_date': added_date_list,
                   'search_query': search_query_list, 
-                  'video_file_name': video_file_name_list
+                  'video_file_name': video_file_name_list,
+                  'channel_name': channel_name_list,
+                  'channel_url': channel_url_list
               }
           )
