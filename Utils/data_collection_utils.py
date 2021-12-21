@@ -1,6 +1,5 @@
 import pandas as pd
 import utils
-import pytube
 
 # ---- pyyoutube ----
 # CHANNEL
@@ -86,7 +85,7 @@ def search_object_to_video_url(result_object):
   str_result = str(result_object)
   return f"https://www.youtube.com/watch?v={str_result.split('videoId=')[-1][:-1]}"
 
-def search_by_keyword(keyword, url_list, today):
+def search_by_keyword(keyword, url_list, today, pytube):
   """
   return a dataframe of urls searched by keyword
   """
@@ -120,7 +119,7 @@ def search_by_keyword(keyword, url_list, today):
               }
           )
 
-def search_by_channel(channel_url, url_list, today):
+def search_by_channel(channel_url, url_list, today, pytube):
   """
   return a dataframe of urls searched by channel
   """
