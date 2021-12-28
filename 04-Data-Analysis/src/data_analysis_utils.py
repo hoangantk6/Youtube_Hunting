@@ -24,3 +24,16 @@ def bar_plot(data, xlabel, ylabel, title):
   plt.ylabel(ylabel)
   plt.title(title)
   return plt
+
+def list_to_freq(data_list):
+    """
+    Calculate the frequency of each distinct item in a list
+    return a dictionary
+    """
+    freq = {}
+    for item in data_list:
+        if (item in freq):
+            freq[item] += 1
+        else:
+            freq[item] = 1
+    return freq
