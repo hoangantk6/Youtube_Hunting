@@ -1,6 +1,8 @@
 from datetime import datetime
 import pandas as pd
 import pytz
+from google.colab import data_table
+
 
 def save_database(df, file_path):
   """
@@ -15,7 +17,7 @@ def update_database(original_df, new_df):
   """
   return original_df.append(new_df, ignore_index=True)
 
-def display_table(df, data_table):
+def display_table(df):
   """
   display table in Google Colab
   """
