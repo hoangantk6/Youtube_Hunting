@@ -10,17 +10,18 @@
         "thumbnail"  : "Thumbnails"
     }, 
     "database" : {
-        "video_url"        : "VIDEO_URL.csv",
-        "video_url_50"     : "VIDEO_URL_50.csv", 
-        "channel_url"      : "CHANNEL_URL.csv",
-        "video"            : "VIDEO.csv",
-        "comment"          : "COMMENT.csv",
-        "channel"          : "CHANNEL.csv",
-        "species"          : "SPECIES.csv",
-        "species_in_video" : "SPECIES_IN_VIDEO.csv",
-        "rifle"            : "RIFLE.csv",
-        "rifle_in_video"   : "RIFLE_IN_VIDEO.csv",
-        "video_tag"        : "VIDEO_TAG", 
-        "channel_tag"      : "CHANNEL_TAG"
+        "video_url"                     : "VIDEO_URL.csv",
+        "video_url_50"                  : "VIDEO_URL_50.csv", 
+        "video_url_50_annotation"       : "VIDEO_URL_50_ANNOTATION.csv", 
+        "channel_url"                   : "CHANNEL_URL.csv",
+        "video"                         : "VIDEO.csv",
+        "comment"                       : "COMMENT.csv",
+        "channel"                       : "CHANNEL.csv",
+        "species"                       : "SPECIES.csv",
+        "species_in_video"              : "SPECIES_IN_VIDEO.csv",
+        "rifle"                         : "RIFLE.csv",
+        "rifle_in_video"                : "RIFLE_IN_VIDEO.csv",
+        "video_tag"                     : "VIDEO_TAG", 
+        "channel_tag"                   : "CHANNEL_TAG"
     }
 }
