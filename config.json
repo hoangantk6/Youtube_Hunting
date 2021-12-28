@@ -8,7 +8,10 @@
         "annotation" : "ML-Annotations",
         "script"     : "Scripts",
         "thumbnail"  : "Thumbnails",
-        "visualization"  : "Data-Analysis"
+        "data-analysis"  : "Data-Analysis",
+        "data-analysis-content": "Content",
+        "data-analysis-metadata": "Metadata",
+        "data-analysis-comment": "Comment"
     }, 
     "database" : {
         "video_url"                     : "VIDEO_URL.csv",
