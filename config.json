@@ -7,7 +7,8 @@
         "frame"      : "Frames",
         "annotation" : "ML-Annotations",
         "script"     : "Scripts",
-        "thumbnail"  : "Thumbnails"
+        "thumbnail"  : "Thumbnails",
+        "visualization"  : "Data-Analysis"
     }, 
     "database" : {
         "video_url"                     : "VIDEO_URL.csv",
