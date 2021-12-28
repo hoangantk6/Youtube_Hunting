@@ -46,5 +46,5 @@ def list_to_freq(data_list):
             freq[item] += 1
         else:
             freq[item] = 1
-    freq = {k: v for k, v in sorted(freq.items(), key=lambda item: item[1], reverse=True)}
+    freq = {k: v for k, v in sorted(freq.items(), key=lambda item: item[1], reverse=False)}
     return freq
