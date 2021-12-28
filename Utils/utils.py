@@ -2,6 +2,7 @@ from datetime import datetime
 import pandas as pd
 import pytz
 from google.colab import data_table
+import os
 
 
 def save_database(df, file_path):
@@ -27,3 +28,11 @@ def what_date_today():
   today = datetime.now(pytz.timezone('Asia/Ho_Chi_Minh'))
   today = today.strftime("%Y-%m-%d %H:%M:%S")
   return today
+
+def save_image(plt, folder_path, file_name):
+  """
+  save matpplotlib image into .jpg file 
+  """
+  file_path = os.path.join(folder_path, file_name)
+  plt.savefig(file_path)
+  print(f'File is saved to {file_name} in Google Drive at {file_path}')
