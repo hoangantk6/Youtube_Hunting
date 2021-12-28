@@ -28,5 +28,9 @@
         "rifle_in_video"                : "RIFLE_IN_VIDEO.csv",
         "video_tag"                     : "VIDEO_TAG", 
         "channel_tag"                   : "CHANNEL_TAG"
+    },
+
+    "file" : {
+        "comment-annotation-spreadsheet-credentials"  : "comment-annotation-spreadsheet-credentials.json"
     }
 }
