@@ -1,8 +1,6 @@
 import matplotlib.pyplot as plt
 
-import matplotlib.pyplot as plt
-
-def bar_plot(data, xlabel, ylabel, title, orientation='verticle', xrotation=0):
+def bar_plot(data, xlabel, ylabel, title, orientation='verticle', xrotation=0, figsize=(10,5)):
   """
   Plot bar chart
   @param data: dict(label: frequency)
@@ -14,7 +12,7 @@ def bar_plot(data, xlabel, ylabel, title, orientation='verticle', xrotation=0):
   for i in y_axis:
     total += i
 
-  fig = plt.figure(figsize = (10, 5))
+  fig = plt.figure(figsize=figsize)
   
   # creating the bar plot
   if orientation=='verticle':
