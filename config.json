@@ -1,17 +1,18 @@
 {
     "root" : "Let-Hunt-Youtube",
     "folder" : {
-        "video"      : "Videos",
-        "comment"    : "Comments",
-        "database"   : "Database",
-        "frame"      : "Frames",
-        "annotation" : "ML-Annotations",
-        "script"     : "Scripts",
-        "thumbnail"  : "Thumbnails",
-        "data-analysis"  : "Data-Analysis",
-        "data-analysis-content": "Content",
+        "video"                 : "Videos",
+        "comment"               : "Comments",
+        "database"              : "Database",
+        "frame"                 : "Frames",
+        "annotation"            : "ML-Annotations",
+        "script"                : "Scripts",
+        "thumbnail"             : "Thumbnails",
+        "data-analysis"         : "Data-Analysis",
+        "data-analysis-content" : "Content",
         "data-analysis-metadata": "Metadata",
-        "data-analysis-comment": "Comment"
+        "data-analysis-comment" : "Comment",
+        "credentials"           : "Credentials"
     }, 
     "database" : {
         "video_url"                     : "VIDEO_URL.csv",
