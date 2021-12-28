@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def bar_plot(data, xlabel, ylabel, title):
+def bar_plot(data, xlabel, ylabel, title, xrotation=0):
   """
   Plot bar chart
   @param data: dict(label: frequency)
@@ -23,6 +23,7 @@ def bar_plot(data, xlabel, ylabel, title):
   plt.xlabel(xlabel)
   plt.ylabel(ylabel)
   plt.title(title)
+  plt.xticks(rotation=xrotation)
   return plt
 
 def list_to_freq(data_list):
