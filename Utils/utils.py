@@ -34,5 +34,5 @@ def save_image(plt, folder_path, file_name):
   save matpplotlib image into .jpg file 
   """
   file_path = os.path.join(folder_path, file_name)
-  plt.savefig(file_path)
+  plt.savefig(file_path, bbox_inches='tight')
   print(f'File is saved to {file_name} in Google Drive at {file_path}')
