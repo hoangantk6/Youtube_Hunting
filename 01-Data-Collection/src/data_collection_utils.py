@@ -22,7 +22,7 @@ def channel_dict_to_df(channel_dict):
   channel['keywords'] = channel_dict['brandingSettings']['channel']['keywords']
   channel['channel_id'] = channel_dict['id']
   channel['channel_created_time'] = channel_dict['snippet']['publishedAt']
-  channel['channel_url'] = f"https://www.youtube.com/channel/{channel['id']}/videos"
+  channel['channel_url'] = f"https://www.youtube.com/channel/{channel['channel_id']}/videos"
   channel['channel_description'] = channel_dict['brandingSettings']['channel']['description']
   channel['num_subscriber'] = channel_dict['statistics']['subscriberCount']
   channel['num_video'] = channel_dict['statistics']['videoCount']
@@ -62,7 +62,7 @@ def video_dict_to_df(video_dict):
   video = {}
   video['video_name'] = video_dict['snippet']['title']
   video['video_id'] = video_dict['id']
-  video['video_url'] = f"https://www.youtube.com/watch?v={video['id']}"
+  video['video_url'] = f"https://www.youtube.com/watch?v={video['video_id']}"
   video['channel_id'] = video_dict['snippet']['channelId']
   video['channel_name'] = video_dict['snippet']['channelTitle']
   video['video_file_name'] = None
