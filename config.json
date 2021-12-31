@@ -18,6 +18,8 @@
         "video_url"                     : "VIDEO_URL.csv",
         "video_url_50"                  : "VIDEO_URL_50.csv", 
         "video_url_50_annotation"       : "VIDEO_URL_50_ANNOTATION.csv", 
+        "comment_50_annotation_synthesis"         : "COMMENT_50_ANNOTATION_SYNTHESIS.csv", 
+        "comment_50_annotation_finalized"         : "COMMENT_50_ANNOTATION_FINALIZED.csv", 
         "channel_url"                   : "CHANNEL_URL.csv",
         "video"                         : "VIDEO.csv",
         "comment"                       : "COMMENT.csv",
