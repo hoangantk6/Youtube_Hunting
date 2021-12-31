@@ -31,9 +31,19 @@ def channel_dict_to_df(channel_dict):
     channel['topic_category'] = ", ".join(channel_dict['topicDetails']['topicCategories'])
   except:
     channel['topic_category'] = None
-  channel['thumbnail_default'] = channel_dict['snippet']['thumbnails']['default']['url']
-  channel['thumbnail_high'] = channel_dict['snippet']['thumbnails']['high']['url']
-  channel['thumbnail_medium'] = channel_dict['snippet']['thumbnails']['medium']['url']
+
+  try:
+    channel['thumbnail_default'] = channel_dict['snippet']['thumbnails']['default']['url']
+  except:
+    channel['thumbnail_default'] = None
+  try:
+    channel['thumbnail_high'] = channel_dict['snippet']['thumbnails']['high']['url']
+  except:
+    channel['thumbnail_high'] = None
+  try:
+    channel['thumbnail_medium'] = channel_dict['snippet']['thumbnails']['medium']['url']
+  except:
+    channel['thumbnail_medium'] = None
   channel['last_update'] = utils.what_date_today()
   return pd.DataFrame([channel])
 
@@ -72,10 +82,22 @@ def video_dict_to_df(video_dict):
   video['duration'] = video_dict['contentDetails']['duration']
   video['projection'] = video_dict['contentDetails']['projection']
   video['definition'] = video_dict['contentDetails']['definition']
-  video['thumbnail_default'] = video_dict['snippet']['thumbnails']['default']['url']
-  video['thumbnail_medium'] = video_dict['snippet']['thumbnails']['medium']['url']
-  video['thumbnail_high'] = video_dict['snippet']['thumbnails']['high']['url']
-  video['thumbnail_standard'] = video_dict['snippet']['thumbnails']['standard']['url']
+  try:
+    video['thumbnail_default'] = video_dict['snippet']['thumbnails']['default']['url']
+  except:
+    video['thumbnail_default'] = None
+  try:
+    video['thumbnail_medium'] = video_dict['snippet']['thumbnails']['medium']['url']
+  except:
+    video['thumbnail_medium'] = None
+  try:
+    video['thumbnail_high'] = video_dict['snippet']['thumbnails']['high']['url']
+  except:
+    video['thumbnail_high'] = None
+  try:
+    video['thumbnail_standard'] = video_dict['snippet']['thumbnails']['standard']['url']
+  except:
+    video['thumbnail_standard'] = None
   video['last_update'] = utils.what_date_today()
 
   return pd.DataFrame([video])
