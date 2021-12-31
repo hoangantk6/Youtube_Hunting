@@ -20,8 +20,8 @@ def channel_dict_to_df(channel_dict):
   channel = {}
   channel['channel_name'] = channel_dict['snippet']['title']
   channel['keywords'] = channel_dict['brandingSettings']['channel']['keywords']
-  channel['id'] = channel_dict['id']
-  channel['created_time'] = channel_dict['snippet']['publishedAt']
+  channel['channel_id'] = channel_dict['id']
+  channel['channel_created_time'] = channel_dict['snippet']['publishedAt']
   channel['channel_url'] = f"https://www.youtube.com/channel/{channel['id']}/videos"
   channel['channel_description'] = channel_dict['brandingSettings']['channel']['description']
   channel['num_subscriber'] = channel_dict['statistics']['subscriberCount']
@@ -61,7 +61,7 @@ def video_dict_to_df(video_dict):
   """
   video = {}
   video['video_name'] = video_dict['snippet']['title']
-  video['id'] = video_dict['id']
+  video['video_id'] = video_dict['id']
   video['video_url'] = f"https://www.youtube.com/watch?v={video['id']}"
   video['channel_id'] = video_dict['snippet']['channelId']
   video['channel_name'] = video_dict['snippet']['channelTitle']
@@ -70,7 +70,7 @@ def video_dict_to_df(video_dict):
   video['num_like'] = video_dict['statistics']['likeCount']
   video['num_dislike'] = video_dict['statistics']['dislikeCount']
   video['num_view'] = video_dict['statistics']['viewCount']
-  video['published_time'] = video_dict['snippet']['publishedAt']
+  video['video_published_time'] = video_dict['snippet']['publishedAt']
   try:
     video['tags'] = ", ".join(video_dict['snippet']['tags'])
   except:
