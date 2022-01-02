@@ -1,9 +1,24 @@
 import matplotlib.pyplot as plt
 
+
+def list_to_freq(data_list):
+    """
+    Calculate the frequency of each distinct item in a list
+    return a dictionary
+    """
+    freq = {}
+    for item in data_list:
+        if (item in freq):
+            freq[item] += 1
+        else:
+            freq[item] = 1
+    freq = {k: v for k, v in sorted(freq.items(), key=lambda item: item[1], reverse=False)}
+    return freq
+
 def bar_plot(data, xlabel, ylabel, title, orientation='verticle', xrotation=0, figsize=(10,5)):
   """
   Plot bar chart
-  @param data: dict(label: frequency)
+  @param data: dict(<label>: <frequency>)
   """
   total = 0
   x_axis = list(data.keys())
@@ -12,7 +27,7 @@ def bar_plot(data, xlabel, ylabel, title, orientation='verticle', xrotation=0, f
   for i in y_axis:
     total += i
 
-  fig = plt.figure(figsize=figsize)
+  plt.figure(figsize=figsize)
   
   # creating the bar plot
   if orientation=='verticle':
@@ -33,16 +48,21 @@ def bar_plot(data, xlabel, ylabel, title, orientation='verticle', xrotation=0, f
   plt.xticks(rotation=xrotation)
   return plt
 
-def list_to_freq(data_list):
-    """
-    Calculate the frequency of each distinct item in a list
-    return a dictionary
-    """
-    freq = {}
-    for item in data_list:
-        if (item in freq):
-            freq[item] += 1
-        else:
-            freq[item] = 1
-    freq = {k: v for k, v in sorted(freq.items(), key=lambda item: item[1], reverse=False)}
-    return freq
+def trend_plot(category_data, xlabel, ylabel, title, xrotation=0, figsize=(10,5)):
+  """
+  Display trend with line chart
+  @param category_data: dict(<category>: {x: <x-axis>, y: <y-axis>})
+  """
+  plt.figure(figsize=figsize)
+
+  for category in category_data.keys():
+    plt.plot(category_data[category]['x'], 
+             category_data[category]['y'], 
+             label=category)
+
+  plt.xlabel(xlabel)
+  plt.ylabel(ylabel)
+  plt.title(title)
+  plt.xticks(rotation=xrotation)
+  plt.legend()
+  return plt
