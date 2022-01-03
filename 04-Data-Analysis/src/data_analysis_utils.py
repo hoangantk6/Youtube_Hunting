@@ -27,31 +27,39 @@ def bar_plot(data, xlabel, ylabel, title,
              figsize=(10,5)):
   """
   Plot bar chart
-  @param data: dict(<label>: <frequency>)
+  @param data: dict(<label>: <frequency>) in case frequency=False, data list otherwise.
   @param confidence_interval: (<proportion>, <confidence_level>)
+  @param frequency: determine if the unit of y-axis is proportion
   """
-  data = np.array(data)
-  data_freq = list_to_freq(data)
-  total = 0
-  x_axis = list(data_freq.keys())
-  y_axis = np.array(list(data_freq.values()))
-  
-  total = 0
-  for i in y_axis:
-    total += i
 
-  # convert to percentage
-  if frequency: 
-    y_axis = y_axis/total
+  if frequency:
+    data = np.array(data)
+    data_freq = list_to_freq(data)
+    total = 0
+    x_axis = list(data_freq.keys())
+    y_axis = np.array(list(data_freq.values()))
+    
+    total = 0
+    for i in y_axis:
+      total += i
 
-  # calculate confidence interval
-  error = []
-  if confidence_interval:
-    confidence_level = confidence_interval[1]
-    for data_key in x_axis:
-      error.append(get_confidence_interval(data==data_key, confidence_level))
+    # convert to percentage
+    if frequency: 
+      y_axis = y_axis/total
+
+    # calculate confidence interval
+    error = []
+    if confidence_interval:
+      confidence_level = confidence_interval[1]
+      for data_key in x_axis:
+        error.append(get_confidence_interval(data==data_key, confidence_level))
+    else:
+      error = 0
+
   else:
-    error = 0
+    x_axis = list(data.keys())
+    y_axis = list(data.values())
+      
 
   plt.figure(figsize=figsize)
   
