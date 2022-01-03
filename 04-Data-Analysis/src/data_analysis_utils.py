@@ -15,7 +15,7 @@ def list_to_freq(data_list):
     freq = {k: v for k, v in sorted(freq.items(), key=lambda item: item[1], reverse=False)}
     return freq
 
-def bar_plot(data, xlabel, ylabel, title, value_annotation=True, orientation='verticle', xrotation=0, figsize=(10,5)):
+def bar_plot(data, xlabel, ylabel, title, value_annotation=True, orientation='verticle', xrotation=0, color='maroon', bar_width=0.4, figsize=(10,5)):
   """
   Plot bar chart
   @param data: dict(<label>: <frequency>)
@@ -31,14 +31,14 @@ def bar_plot(data, xlabel, ylabel, title, value_annotation=True, orientation='ve
   
   # creating the bar plot
   if orientation=='verticle':
-    plt.bar(x_axis, y_axis, color ='maroon', width = 0.4)
+    plt.bar(x_axis, y_axis, color=color, width=bar_width)
 
     if value_annotation:
       for i, v in enumerate(y_axis):
         plt.text(i-0.15, v+0.2, str(f"{round(v/total*100,2)}%"), color='blue', fontweight='bold')
 
   else:
-    plt.barh(x_axis, y_axis, color ='maroon')
+    plt.barh(x_axis, y_axis, color=color)
 
     if value_annotation:
       for i, v in enumerate(y_axis):
