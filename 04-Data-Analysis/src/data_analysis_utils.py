@@ -49,8 +49,8 @@ def bar_plot(data, xlabel, ylabel, title,
       y_axis = y_axis/total
 
     # calculate confidence interval
-    error = []
     if confidence_interval:
+      error = []
       confidence_level = confidence_interval[1]
       for data_key in x_axis:
         error.append(get_confidence_interval(data==data_key, confidence_level))
