@@ -32,7 +32,7 @@ def bar_plot(data, xlabel, ylabel, title,
   @param frequency: determine if the unit of y-axis is proportion
   """
 
-  error = 0
+  error = None
   if frequency:
     data = np.array(data)
     data_freq = list_to_freq(data)
