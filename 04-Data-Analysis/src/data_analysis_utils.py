@@ -57,14 +57,14 @@ def bar_plot(data, xlabel, ylabel, title,
   
   # creating the bar plot 
   if orientation=='verticle':
-    plt.bar(x_axis, y_axis, yerr=error, color=color, width=bar_width)
+    plt.bar(x_axis, y_axis, yerr=error, color=color, width=bar_width, capsize=10)
 
     # if value_annotation:
     #   for i, v in enumerate(y_axis):
     #     plt.text(i-0.15, v+0.2, str(f"{round(v/total*100,2)}%"), color='blue', fontweight='bold')
 
   else:
-    plt.barh(x_axis, y_axis, xerr=error, color=color)
+    plt.barh(x_axis, y_axis, xerr=error, color=color, capsize=10)
 
     # if value_annotation:
     #   for i, v in enumerate(y_axis):
@@ -106,5 +106,5 @@ def get_confidence_interval(sample, confidence_level):
   sample = np.array(sample)
   sample_size = len(sample)
   sample_std = sample.std()
-  z = st.t.ppf((1-confidence_level)/2, df=sample_size-1)
-  return z*sample_std/np.sqrt(sample_size)
+  t = st.t.ppf((1-confidence_level)/2, df=sample_size-1)
+  return t*sample_std/np.sqrt(sample_size)
