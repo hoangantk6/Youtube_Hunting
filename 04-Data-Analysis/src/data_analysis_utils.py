@@ -57,14 +57,14 @@ def bar_plot(data, xlabel, ylabel, title,
   
   # creating the bar plot 
   if orientation=='verticle':
-    plt.bar(x_axis, y_axis, yerr=error, color=color, width=bar_width, capsize=10)
+    plt.bar(x_axis, y_axis, yerr=error, color=color, width=bar_width, capsize=5)
 
     # if value_annotation:
     #   for i, v in enumerate(y_axis):
     #     plt.text(i-0.15, v+0.2, str(f"{round(v/total*100,2)}%"), color='blue', fontweight='bold')
 
   else:
-    plt.barh(x_axis, y_axis, xerr=error, color=color, capsize=10)
+    plt.barh(x_axis, y_axis, xerr=error, color=color, capsize=5)
 
     # if value_annotation:
     #   for i, v in enumerate(y_axis):
