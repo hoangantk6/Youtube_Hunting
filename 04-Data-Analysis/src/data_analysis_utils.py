@@ -20,7 +20,8 @@ def bar_plot(data, xlabel, ylabel, title,
              confidence_interval=False,
              frequency=False, 
             #  value_annotation=True, 
-             orientation='verticle', 
+             orientation='verticle',
+             x_tick_label=None,
              xrotation=0, 
              color='maroon', 
              bar_width=0.4, 
@@ -30,6 +31,7 @@ def bar_plot(data, xlabel, ylabel, title,
   @param data: dict(<label>: <frequency>) in case frequency=False, data list otherwise.
   @param confidence_interval: (<proportion>, <confidence_level>)
   @param frequency: determine if the unit of y-axis is proportion
+  @param x_tick_label: dict(<old-x-tick-labels>: <new-x-tick-labels>) assign new label set for x-axis
   """
 
   error = None
@@ -76,11 +78,17 @@ def bar_plot(data, xlabel, ylabel, title,
     # if value_annotation:
     #   for i, v in enumerate(y_axis):
     #     plt.text(v+0.2, i-0.15, str(f"{round(v/total*100,2)}%"), color='blue', fontweight='bold')
-
+  bars = []
+  if x_tick_label != None:
+    for i in x_axis:
+        bars.append(x_tick_label[i])
+    plt.xticks(x_axis, bars)
+    
   plt.xlabel(xlabel)
   plt.ylabel(ylabel)
   plt.title(title)
   plt.xticks(rotation=xrotation)
+
   return plt
 
 def trend_plot(category_data, xlabel, ylabel, title, xrotation=0, figsize=(10,5)):
