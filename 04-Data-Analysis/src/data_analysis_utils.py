@@ -22,7 +22,6 @@ def bar_plot(data, xlabel, ylabel, title,
             #  value_annotation=True, 
              orientation='verticle',
              x_tick_label=None,
-             y_tick_label=None,
              xrotation=0, 
              color='maroon', 
              bar_width=0.4, 
@@ -79,17 +78,15 @@ def bar_plot(data, xlabel, ylabel, title,
     # if value_annotation:
     #   for i, v in enumerate(y_axis):
     #     plt.text(v+0.2, i-0.15, str(f"{round(v/total*100,2)}%"), color='blue', fontweight='bold')
+  
   xbars = []
   if x_tick_label != None:
     for i in x_axis:
-        bars.append(x_tick_label[i])
-    plt.xticks(np.arange(len(x_axis)), xbars)
-    
-  ybars = []
-  if y_tick_label != None:
-    for i in y_axis:
-        bars.append(y_tick_label[i])
-    plt.yticks(np.arange(len(y_axis)), ybars)
+          xbars.append(x_tick_label[i])
+    if orientation=='vertical':
+      plt.xticks(np.arange(len(x_axis)), xbars)
+    else:
+      plt.yticks(np.arange(len(x_axis)), xbars)
     
   plt.xlabel(xlabel)
   plt.ylabel(ylabel)
@@ -122,7 +119,6 @@ def get_confidence_interval(sample, confidence_level):
   calculate the confidence interval of sample mean without population std
   @param sample: data list (0|1 for proportion)
   @param confidence_level: level of confidence, e.g., 0.95
-
   @return the confidence error
   """
   sample = np.array(sample)
