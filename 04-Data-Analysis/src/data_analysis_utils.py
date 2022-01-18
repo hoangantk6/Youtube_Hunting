@@ -82,7 +82,7 @@ def bar_plot(data, xlabel, ylabel, title,
   if x_tick_label != None:
     for i in x_axis:
         bars.append(x_tick_label[i])
-    plt.xticks(x_axis, bars)
+    plt.xticks(np.arange(len(x_axis)), bars)
     
   plt.xlabel(xlabel)
   plt.ylabel(ylabel)
